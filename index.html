@@ -882,7 +882,7 @@ root.setAttribute('data-theme','mural');
 var target=new Date('2027-04-04T10:30:00+05:30').getTime();
 function tick(){var d=Math.max(0,target-Date.now()),h='';[['Days',864e5],['Hours',36e5],['Mins',6e4],['Secs',1e3]].forEach(function(x){var v=Math.floor(d/x[1]);d-=v*x[1];h+='<div><b>'+v+'</b><small>'+x[0]+'</small></div>'});$('count').innerHTML=h}
 tick();setInterval(tick,1000);
-var RSVP_WEB_APP_URL='PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+var RSVP_WEB_APP_URL='https://script.google.com/macros/s/AKfycbwCY1ZOwUIT9f5_c0yIho_3vHtgdk_rSUV2-F15-tcvhOEjQ_roL4QspsNxOtxFz-oh/exec';
 // Enter the receiving WhatsApp number in international format (digits only) to open a direct chat.
 // Until then, WhatsApp opens its share screen with the RSVP message prefilled.
 var WHATSAPP_NUMBER='';
