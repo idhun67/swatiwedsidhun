@@ -764,9 +764,9 @@ main{display:block;flex:none;width:100%;max-width:820px;margin:0 auto;padding:0 
     <p class="mal">ശുഭ വിവാഹം</p>
     <div class="hero-ornament" aria-hidden="true"><span>❧</span><b>✧</b><span>❧</span></div>
     <p class="hero-kicker">WITH THE BLESSINGS OF OUR FAMILIES</p>
-    <p class="family-invite"><span>With love and blessings, we,</span><strong>Sabu Basanther S P &amp; Bindhu A</strong><span>request the pleasure of your company as we celebrate the wedding of our beloved daughter</span></p>
+    <p class="family-invite"><span>With love and blessings, we,</span><strong>Mr. Sabu Basanther S P &amp; Mrs. Bindhu A</strong><span>request the pleasure of your company as we celebrate the wedding of our beloved daughter</span></p>
     <h1 class="wedding-names"><span class="name-primary">Swati B S</span><em>&amp;</em><span class="name-secondary">Idhun Ramesh</span></h1>
-    <p class="family-relation"><strong>Son of</strong> Ramesh Kumar B &amp; Sheeja Ramesh</p>
+    <p class="family-relation"><strong>Son of</strong> Mr. Ramesh Kumar B &amp; Mrs. Sheeja Ramesh</p>
     <div class="hero-details">
       <span class="hero-date">Sunday · 4 April 2027</span>
       <span class="hero-location">Ragam Auditorium · Kazhakoottam, Thiruvananthapuram</span>
@@ -841,7 +841,6 @@ main{display:block;flex:none;width:100%;max-width:820px;margin:0 auto;padding:0 
         <option value="Sorry, unable to attend">Sorry, unable to attend</option>
         <option value="Not decided yet">Not decided yet</option>
       </select>
-      <input class="rsvp-honeypot" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn rsvp-submit" id="send" type="button">Submit RSVP &amp; Open WhatsApp <span aria-hidden="true">→</span></button>
       <p class="rsvp-status" id="rsvpStatus" role="status" aria-live="polite">Your response will be added to the wedding guest list and opened in WhatsApp.</p>
     </div>
@@ -889,7 +888,6 @@ var WHATSAPP_NUMBER='';
 $('send').onclick=async function(){
   var name=$('nm').value.trim(),guestCount=$('gs').value,attendance=$('at').value,button=$('send'),status=$('rsvpStatus');
   if(!name){status.textContent='Please enter your name before submitting.';$('nm').focus();return;}
-  if($('website').value){status.textContent='Thank you.';return;}
 
   var invitationSource="Bride's Side";
   var waMessage='Wedding RSVP — Swati & Idhun\nInvitation: '+invitationSource+'\nName: '+name+'\nAttendance: '+attendance+'\nGuests: '+guestCount;
@@ -904,10 +902,10 @@ $('send').onclick=async function(){
   }
   button.disabled=true;button.textContent='Submitting…';
   status.textContent='Your RSVP is being added to the wedding guest list. Please send the prepared message in WhatsApp too.';
-  var payload=new URLSearchParams({name:name,guestCount:guestCount,attendance:attendance,invitationSide:"Bride's Side",website:$('website').value});
+  var payload=new URLSearchParams({name:name,guestCount:guestCount,attendance:attendance,invitationSide:"Bride's Side"});
   try{
     await fetch(RSVP_WEB_APP_URL,{method:'POST',mode:'no-cors',body:payload});
-    status.textContent='Thank you, '+name+'! Your response has been submitted for the guest list. Please tap Send in WhatsApp to share a copy.';
+    status.textContent='Thank you, '+name+'! Your RSVP request has been sent. Please check with the hosts if you need confirmation that it appears in the guest list. Tap Send in WhatsApp to share a copy.';
     button.textContent='RSVP Submitted';
   }catch(err){
     status.textContent='WhatsApp has opened. We could not reach the online guest list, so please send the WhatsApp message as a backup.';
